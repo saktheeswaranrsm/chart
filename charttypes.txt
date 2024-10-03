@@ -1,0 +1,70 @@
+ line chart  tracking monthly sales revenue over a year
+bar chart  Showing the number of books sold by genre in a bookstore
+radar chart Employee Skill Assessment
+bubble chart for Sales Performance by Region, Profit, and Number of Customers scatter chart for Product Price vs. Units Sold
+polar area chart for departmental budget allocation 
+ piechart and doughnut chart for Illustrating market share of competing brands in an industry
+
+
+Line Chart:  To display trends over time or continuous data
+
+Description: Shows data points connected by straight line segments.
+Use case: Tracking monthly sales revenue over a year.
+Best for: Visualizing trends over time, showing continuous data, and comparing multiple data series.
+Example: In our chart, it clearly shows the progression of sales revenue month by month, making it easy to spot trends and seasonal patterns.
+
+
+Bar Chart:    To compare quantities across different categories or groups
+
+Description: Uses rectangular bars to represent data values.
+Use case: Showing the number of books sold by genre in a bookstore.
+Best for: Comparing discrete categories, showing frequency distributions, and displaying data that can be counted or measured.
+Example: Our chart allows easy comparison of book sales across different genres, instantly showing which genres are more popular.
+
+
+Radar Chart:   compare multiple variables for different items or groups in a two-dimensional
+
+Description: Displays multivariate data on a two-dimensional chart with three or more quantitative variables.
+Use case: Employee Skill Assessment.
+Best for: Comparing multiple quantitative variables, showing performance metrics, and identifying strengths and weaknesses.
+Example: In our chart, it visualizes an employee's skills across various areas, making it easy to see which skills are strong and which might need improvement.
+
+
+Bubble Chart: To display three dimensions of data, using the x-axis, y-axis, and the size of the bubbles to represent a third variable.
+
+Description: Similar to a scatter plot, but with a third dimension represented by the size of the bubbles.
+Use case: Sales Performance by Region, Profit, and Number of Customers.
+Best for: Showing relationships between three variables, where two are plotted on x and y axes, and the third is represented by bubble size.
+Example: Our chart shows how profit, number of customers, and sales performance relate in different regions, with the bubble size indicating the scale of performance.
+
+
+Scatter Chart: To show relationships or correlations between two numerical variables.
+
+Description: Uses dots to represent values for two different numeric variables.
+Use case: Product Price vs. Units Sold.
+Best for: Showing correlation between two variables, identifying outliers, and visualizing distribution of data points.
+Example: In our chart, it helps visualize how the price of a product affects the number of units sold, potentially showing an inverse relationship.
+
+
+Polar Area Chart:   To show data in a circular format, where the radius represents the magnitude of the data.
+
+Description: Similar to a pie chart, but each segment has equal angle and differs in how far each sector extends from the center of the circle.
+Use case: Departmental Budget Allocation.
+Best for: Showing relative sizes of data categories, comparing multiple categories, and highlighting differences in data magnitude.
+Example: Our chart shows budget allocation across different departments, with the area of each sector representing the budget size.
+
+
+Pie Chart:  To show proportions or percentages of a whole.
+
+Description: Circular statistical graphic divided into slices to illustrate numerical proportion.
+Use case: Illustrating market share of competing brands in an industry.
+Best for: Showing composition of a whole, displaying percentages of a total, and comparing parts of a whole.
+Example: In our chart, it clearly shows the market share distribution among different brands, making it easy to see which brand dominates the market.
+
+
+Doughnut Chart:
+
+Description: Similar to a pie chart, but with a hole in the center.
+Use case: Also used for illustrating market share of competing brands.
+Best for: Similar to pie charts, but can be more visually appealing and can include additional information in the center.
+Example: Our doughnut chart shows the same market share data as the pie chart, but with a different visual style that some may find easier to read or more aesthetically pleasing.

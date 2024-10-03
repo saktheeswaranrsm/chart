@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Chart Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .chart-container {
+            background-color: rgb(255, 255, 255);
+            width: 380px;
+            height: 420px;
+            margin: 15px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(215, 144, 144, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .chart-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        @media (max-width: 768px) {
+            .chart-container {
+                width: 100%;
+                height: 300px;
+            }
+        }
+        
+        
+
+    </style>
+</head>
+<body>
+
+    <div class="chart-container">
+        <h2>Monthly Sales Revenue</h2>
+        <canvas id="monthlySalesChart"></canvas>
+    </div>
+    <div class="chart-container">
+        <h2>Books Sold by Genre</h2>
+        <canvas id="bookSalesChart"></canvas>
+    </div>
+    <div class="chart-container">
+        <h2>Employee Skill Assessment</h2>
+        <canvas id="skillAssessmentChart"></canvas>
+    </div>
+    <div class="chart-container">
+        <h2>Sales Performance by Region</h2>
+        <canvas id="salesPerformanceChart"></canvas>
+    </div>
+    <div class="chart-container">
+        <h2>Product Price vs. Units Sold</h2>
+        <canvas id="productSalesChart"></canvas>
+    </div>
+    <div class="chart-container">
+        <h2>Departmental Budget Allocation</h2>
+        <canvas id="budgetAllocationChart"></canvas>
+    </div>
+    <div class="chart-container">    
+        <h2>Market Share (Pie)</h2>
+        <canvas id="marketSharePieChart"></canvas>
+    </div>
+    <div class="chart-container">
+        <h2>Market Share (Doughnut)</h2>
+        <canvas id="marketShareDoughnutChart"></canvas>
+    </div>
+    <script>
+        // Line Chart: Monthly Sales Revenue
+        new Chart(document.getElementById('monthlySalesChart').getContext('2d'), {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Monthly Sales Revenue',
+                    data: [12000, 19000, 15000, 17000, 22000, 24000, 25000, 28000, 30000, 27000, 29000, 32000],
+                    borderColor: 'rgb(255,0 ,0 )',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Revenue ($)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Month'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Bar Chart: Books Sold by Genre
+        new Chart(document.getElementById('bookSalesChart').getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: ['Fiction', 'Non-Fiction', 'Mystery', 'Sci-Fi', 'Romance', 'Biography'],
+                datasets: [{
+                    label: 'Number of Books Sold',
+                    data: [300, 250, 200, 180, 220, 150],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(54, 162, 235, 0.7)',
+                        'rgba(255, 206, 86, 0.7)',
+                        'rgba(75, 192, 192, 0.7)',
+                        'rgba(153, 102, 255, 0.7)',
+                        'rgba(255, 159, 64, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Books Sold'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Genre'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Radar Chart: Employee Skill Assessment
+        new Chart(document.getElementById('skillAssessmentChart').getContext('2d'), {
+            type: 'radar',
+            data: {
+                labels: ['Communication', 'Teamwork', 'Problem Solving', 'Technical Skills', 'Leadership', 'Creativity'],
+                datasets: [{
+                    label: 'Employee A',
+                    data: [80, 90, 75, 85, 70, 65],
+                    fill: true,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    pointBackgroundColor: 'rgb(255, 99, 132)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(255, 99, 132)'
+                }, {
+                    label: 'Employee B',
+                    data: [70, 85, 80, 75, 90, 80],
+                    fill: true,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgb(54, 162, 235)',
+                    pointBackgroundColor: 'rgb(54, 162, 235)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(54, 162, 235)'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    r: {
+                        angleLines: {
+                            display: false
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                }
+            }
+        });
+
+        // Bubble Chart: Sales Performance by Region, Profit, and Number of Customers
+        new Chart(document.getElementById('salesPerformanceChart').getContext('2d'), {
+            type: 'bubble',
+            data: {
+                datasets: [{
+                    label: 'North',
+                    data: [{x: 20, y: 30, r: 15}],
+                    backgroundColor: 'rgba(255, 99, 132, 0.7)'
+                }, {
+                    label: 'South',
+                    data: [{x: 40, y: 10, r: 10}],
+                    backgroundColor: 'rgba(54, 162, 235, 0.7)'
+                }, {
+                    label: 'East',
+                    data: [{x: 30, y: 20, r: 20}],
+                    backgroundColor: 'rgba(255, 206, 86, 0.7)'
+                }, {
+                    label: 'West',
+                    data: [{x: 10, y: 40, r: 25}],
+                    backgroundColor: 'rgba(75, 192, 192, 0.7)'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Profit ($K)'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Number of Customers (K)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Scatter Chart: Product Price vs. Units Sold
+        new Chart(document.getElementById('productSalesChart').getContext('2d'), {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'Product Sales',
+                    data: [
+                        {x: 10, y: 200},
+                        {x: 30, y: 150},
+                        {x: 20, y: 100},
+                        {x: 40, y: 75},
+                        {x: 60, y: 50},
+                        {x: 50, y: 25}
+                    ],
+                    backgroundColor: 'rgba(75, 192, 192, 0.7)'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Price ($)'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Units Sold'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Polar Area Chart: Departmental Budget Allocation
+        new Chart(document.getElementById('budgetAllocationChart').getContext('2d'), {
+            type: 'polarArea',
+            data: {
+                labels: ['Marketing', 'R&D', 'Operations', 'HR', 'IT'],
+                datasets: [{
+                    data: [300, 250, 200, 100, 150],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(54, 162, 235, 0.7)',
+                        'rgba(255, 206, 86, 0.7)',
+                        'rgba(75, 192, 192, 0.7)',
+                        'rgba(153, 102, 255, 0.7)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    r: {
+                        pointLabels: {
+                            display: true,
+                            centerPointLabels: true,
+                            font: {
+                                size: 18
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Pie Chart: Market Share
+        new Chart(document.getElementById('marketSharePieChart').getContext('2d'), {
+            type: 'pie',
+            data: {
+                labels: ['Brand A', 'Brand B', 'Brand C', 'Brand D', 'Others'],
+                datasets: [{
+                    data: [30, 25, 20, 15, 10],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(54, 162, 235, 0.7)',
+                        'rgba(255, 206, 86, 0.7)',
+                        'rgba(75, 192, 192, 0.7)',
+                        'rgba(153, 102, 255, 0.7)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Market Share (Pie Chart)'
+                    }
+                }
+            }
+        });
+
+        // Doughnut Chart: Market Share
+        new Chart(document.getElementById('marketShareDoughnutChart').getContext('2d'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Brand A', 'Brand B', 'Brand C', 'Brand D', 'Others'],
+                datasets: [{
+                    data: [30, 25, 20, 15, 10],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(54, 162, 235, 0.7)',
+                        'rgba(255, 206, 86, 0.7)',
+                        'rgba(75, 192, 192, 0.7)',
+                        'rgba(153, 102, 255, 0.7)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Market Share (Doughnut Chart)'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
